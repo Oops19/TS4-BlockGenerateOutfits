@@ -1,0 +1,15 @@
+{
+    ('BATHING', 0),
+    ('SPECIAL', 1),
+}
+
+# Each outfit category and index which is defined here can be blocked by the mod.
+
+# Supported outfit categories (some may require a DLC):
+# 5 outfits [0-4]: EVERYDAY FORMAL ATHLETIC SLEEP PARTY SWIMWEAR HOTWEATHER COLDWEATHER BATUU
+# 3 outfits [0-2]: SPECIAL (0=Default, 1=Towel, 2=Fashion)
+# 1 outfit [0]: BATHING CAREER SITUATION
+
+# The first outfit in each category has the index 0 (not 1) and the th outfit has the index 4 (not 5).
+
+# The format is ``('outfit category' (in upper case), outfit index),´´
