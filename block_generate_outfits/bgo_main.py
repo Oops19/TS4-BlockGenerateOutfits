@@ -20,9 +20,9 @@ from sims.outfits.outfit_enums import OutfitCategory
 from sims.sim_info_base_wrapper import SimInfoBaseWrapper
 
 from sims4communitylib.utils.common_injection_utils import CommonInjectionUtils
-from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
+from sims4communitylib.utils.common_log_registry import CommonLog, CommonLogRegistry
 
-log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity().name, 'bgo_main')
+log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'bgo_main')
 log.enable()
 log.debug(f"Thank you for using Block Generate Outfits")
 
