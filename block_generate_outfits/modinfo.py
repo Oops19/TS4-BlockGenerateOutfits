@@ -12,7 +12,7 @@ class ModInfo(CommonModInfo):
 
     @property
     def _name(self) -> str:
-        return 'Block-Generate-Outfits'
+        return 'BlockGenerateOutfits'
 
     @property
     def _author(self) -> str:
