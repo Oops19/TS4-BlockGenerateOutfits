@@ -29,7 +29,7 @@ All edit and toggle commands are not persisted, after starting the game the mod 
 # Addendum
 
 ## Game compatibility
-This mod has been tested with `The Sims 4` 1.110.311, S4CL 3.9, TS4Lib 0.3.28 (2024-11-14).
+This mod has been tested with `The Sims 4` 1.111.102, S4CL 3.9, TS4Lib 0.3.33.
 It is expected to be compatible with many upcoming releases of TS4, S4CL and TS4Lib.
 
 ## Dependencies
