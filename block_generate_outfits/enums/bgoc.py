@@ -14,10 +14,11 @@ class BlockGenerateOutfitCategory(CommonEnum):
     SLEEP = 3  # 0-4
     PARTY = 4  # 0-4
     BATHING = 5  # 0
-    CAREER = 6  # 0
+    CAREER = 6  # 0-2
     SITUATION = 7  # 0
     SPECIAL = 8  # 0-2; 0=Default, 1=Towel, 2=Fashion
     SWIMWEAR = 9  # 0-4
     HOTWEATHER = 10  # 0-4
     COLDWEATHER = 11  # 0-4
     BATUU = 12  # 0-4
+    SMALL_BUSINESS = 13 # 0-4

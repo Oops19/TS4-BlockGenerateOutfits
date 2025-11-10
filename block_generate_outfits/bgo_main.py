@@ -46,8 +46,11 @@ class BlockGenerateOutfitsMain:
                 data = ast.literal_eval(data)
                 rv: Set[Tuple[OutfitCategory, int]] = set()
                 for outfit_str, outfit_idx in data:
-                    outfit_cat = OutfitCategory(BlockGenerateOutfitCategory[outfit_str].value)
-                    rv.add((outfit_cat, outfit_idx))
+                    try:
+                        outfit_cat = OutfitCategory(BlockGenerateOutfitCategory[outfit_str].value)
+                        rv.add((outfit_cat, outfit_idx))
+                    except KeyError:
+                        log.warn(f"Unknown outfit category '{outfit_str}' in config. Skipping.")
                 BlockGenerateOutfitsMain.keep_outfits_category_and_index = rv
         except Exception as e:
             log.error(f"Couldn't import {file_name} ({e})")
