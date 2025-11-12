@@ -1,37 +1,108 @@
-<h1>TS4 Block Generate Outfit</h1>
+<h1>👗 TS4 Keep Outfit</h1>
+<h2>🚫 Block Outfit Generation</h2>
 <br/>
-This mods prevents that TS4 generates new outfits for sims if an outfit exist.<br/>
+This mod prevents The Sims 4 from generating new outfits for Sims **if an outfit already exists**.<br/>
 <br/>
-If an outfit is missing the mod always allows the creation of the missing outfit.<br/>
+- If an outfit is missing, the game is still allowed to generate it.<br/>
+- Mods that **replace** outfits (without generating them) are not blocked.<br/>
+- Note: There may be other ways TS4 replaces outfits, so this mod is not 100% foolproof.<br/>
 <br/>
-Mods can still replace outfits without generating them, they will not be blocked.<br/>
-There might be other ways for TS4 to replace outfits, so it is not 100 % safe.<br/>
 <br/>
-<h2>Usage</h2>
-To replace special outfit with a custom one the easiest thing is to copy the outfit from an existing outfit.<br/>
-I suggest to use <a href='https://github.com/Oops19/TS4-CopyOutfits'>CopyOutfits</a> and create the desired outfit in CAS as Everyday.1 or something like this.<br/>
-Back in game change the outfit to Everyday.1 and copy it.<br/>
-Paste it to the special outfit which should be replaced permanently.<br/>
-<br/>
-<h3>Configuration</h3>
-The default configuration is stored in <i>The Sims 4/mod_data/block_generate_outfits/block_generate_outfits.txt</i> and can be easily altered.<br/>
-It blocks only BATHING.0 and SPECIAL.1.<br/>
-<br/>
-To use cheat commands enable the cheat console (Shift+Ctrl+C <i>testingcheats true`).<br/>
+<h2>👕 Usage</h2>
+Just install the mod, it blocks the replacement of these outfits:<br/>
 <ul>
-	<li>`o19.bgo.help</i> shows a brief help.</li>
-	<li>`o19.bgo.toggle</i> to disable and enable this mod temporarily.</li>
-	<li>`o19.bgo.edit + EVERYDAY 4</i> will prevent that also the 5th 'Everyday' outfit gets replaced, even though this should never be re-generated.</li>
-	<li>`o19.bgo.edit - SPECIAL 1</i> will remove the Special.1 outfit from the list.</li>
+	<li>`BATHING.0</i> (nude)</li>
+	<li>* <i>SPECIAL.1</i> (towel)</li>
 </ul>
 <br/>
-All edit and toggle commands are not persisted, after starting the game the mod is active and the settings read from the configuration file apply.<br/>
+<h2>🧵 Customization of Special Outfits</h2>
+Outfit customization is **not** part of this mod.<br/>
+To replace a special or standard outfit with a custom one:<br/>
 <br/>
+1. Use <a href='https://github.com/Oops19/TS4-CopyOutfits'>Copy Outfits</a>.<br/>
+2. In CAS, create the desired outfit as <i>Everyday.1</i> or similar.<br/>
+3. Back in-game, switch to <i>Everyday.1</i> and copy it using Copy Outfits.<br/>
+4. Paste it to the special outfit slot you want to replace permanently.<br/>
+<br/>
+<h2>🧑‍💻 Cheat Commands</h2>
+Enable the cheat console with <i>Shift+Ctrl+C</i> and enter <i>testingcheats true</i>.<br/>
+<br/>
+- <i>o19.bgo.help</i> — Show a brief help message<br/>
+- <i>o19.bgo.toggle</i> — Temporarily enable/disable the mod<br/>
+- <i>o19.bgo.edit + EVERYDAY 4</i> — Block generation of the 5th Everyday outfit<br/>
+- <i>o19.bgo.edit - SPECIAL 1</i> — Unblock generation of the Special.1 outfit<br/>
+<br/>
+> ⚠️ Changes made via cheat commands are **not saved**.<br/>
+> On game restart, the mod reloads settings from the configuration file.<br/>
+<br/>
+<h2>⚙️ Configuration</h2>
+The default config file is located at <i>The Sims 4/mod_data/block_generate_outfits/block_generate_outfits.txt</i><br/>
+<br/>
+By default, it blocks:<br/>
+- <i>BATHING.0</i><br/>
+- <i>SPECIAL.1</i><br/>
+<br/>
+You can edit this file to block or unblock specific outfit slots.<br/>
+For example, you might choose to block additional Everyday or Party outfits depending on your gameplay needs.<br/>
+<br/>
+<h2>🗂️ Configuration Format</h2>
+It uses a simple Python-style set structure to define which outfits should be blocked from automatic generation:<br/>
+<br/>
+<pre>
+{
+    ('BATHING', 0),
+    ('SPECIAL', 1),
+}
+</pre>
+<h3>➕ To block another outfit:</h3>
+Add a new line inside the {} with the outfit category and index in parentheses, followed by a comma:<br/>
+<pre>
+{
+    ('BATHING', 0),
+    ('SPECIAL', 1),
+    ('EVERYDAY', 4),
+}
+</pre>
+<br/>
+<ul>
+	<li>Each entry must end with a comma.</li>
+	<li>Index numbers start at 0 (e.g., EVERYDAY 0 is the first Everyday outfit).</li>
+</ul>
+<br/>
+<h2>🎽 Supported Outfit Categories</h2>
+<br/>
+The following outfit categories are supported and must be written in **UPPER CASE** in the configuration file:<br/>
+<br/>
+- EVERYDAY<br/>
+- FORMAL<br/>
+- ATHLETIC<br/>
+- SLEEP<br/>
+- PARTY<br/>
+- BATHING<br/>
+- CAREER<br/>
+- SITUATION<br/>
+- SPECIAL<br/>
+- SWIMWEAR<br/>
+- HOTWEATHER<br/>
+- COLDWEATHER<br/>
+- BATUU<br/>
+- SMALL_BUSINESS<br/>
+<br/>
+Each category may support different index ranges. For example:<br/>
+- <i>EVERYDAY`, <i>FORMAL`, <i>ATHLETIC`, etc. typically support indices <i>0–4</i><br/>
+- <i>CAREER</i> supports <i>0–2</i><br/>
+- <i>BATHING`, <i>SITUATION</i> usually support only <i>0</i><br/>
+- <i>SPECIAL</i> supports <i>0–2</i> (0 = Default, 1 = Towel, 2 = Fashion)<br/>
+<br/>
+Make sure to follow the exact format shown in the sample lines. Incorrect entries will be ignored.<br/>
+<br/>
+<br/>
+---<br/>
 <br/>
 <h1>📝 Addendum</h1>
 <br/>
 <h2>🔄 Game compatibility</h2>
-This mod has been tested with <i>The Sims 4</i> 1.119.109, S4CL 3.15, TS4Lib 0.3.42.<br/>
+This mod has been tested with <i>The Sims 4</i> 1.119.109, S4CL 3.17, TS4Lib 0.3.42.<br/>
 It is expected to remain compatible with future releases of TS4, S4CL, and TS4Lib.<br/>
 <br/>
 <h2>📦 Dependencies</h2>
@@ -183,7 +254,7 @@ To remove all of my mods, delete the following folders:<br/>
 <h1>📝 Addendum</h1>
 <br/>
 <h2>🔄 Game compatibility</h2>
-This mod has been tested with <i>The Sims 4</i> 1.119.109, S4CL 3.15, TS4Lib 0.3.42.<br/>
+This mod has been tested with <i>The Sims 4</i> 1.119.109, S4CL 3.17, TS4Lib 0.3.42.<br/>
 It is expected to remain compatible with future releases of TS4, S4CL, and TS4Lib.<br/>
 <br/>
 <h2>📦 Dependencies</h2>

@@ -1,35 +1,104 @@
-# TS4 Block Generate Outfit
+# 👗 TS4 Keep Outfit
+## 🚫 Block Outfit Generation
 
-This mods prevents that TS4 generates new outfits for sims if an outfit exist.
+This mod prevents The Sims 4 from generating new outfits for Sims **if an outfit already exists**.
 
-If an outfit is missing the mod always allows the creation of the missing outfit.
+- If an outfit is missing, the game is still allowed to generate it.
+- Mods that **replace** outfits (without generating them) are not blocked.
+- Note: There may be other ways TS4 replaces outfits, so this mod is not 100% foolproof.
 
-Mods can still replace outfits without generating them, they will not be blocked. 
-There might be other ways for TS4 to replace outfits, so it is not 100 % safe.
 
-## Usage
-To replace special outfit with a custom one the easiest thing is to copy the outfit from an existing outfit.
-I suggest to use [CopyOutfits](https://github.com/Oops19/TS4-CopyOutfits) and create the desired outfit in CAS as Everyday.1 or something like this.
-Back in game change the outfit to Everyday.1 and copy it.
-Paste it to the special outfit which should be replaced permanently.
+## 👕 Usage
+Just install the mod, it blocks the replacement of these outfits:
+* `BATHING.0` (nude)
+* * `SPECIAL.1` (towel)
 
-### Configuration
-The default configuration is stored in `The Sims 4/mod_data/block_generate_outfits/block_generate_outfits.txt` and can be easily altered.
-It blocks only BATHING.0 and SPECIAL.1.
+## 🧵 Customization of Special Outfits
+Outfit customization is **not** part of this mod.  
+To replace a special or standard outfit with a custom one:
 
-To use cheat commands enable the cheat console (Shift+Ctrl+C `testingcheats true`).
-* `o19.bgo.help` shows a brief help.
-* `o19.bgo.toggle` to disable and enable this mod temporarily.
-* `o19.bgo.edit + EVERYDAY 4` will prevent that also the 5th 'Everyday' outfit gets replaced, even though this should never be re-generated.
-* `o19.bgo.edit - SPECIAL 1` will remove the Special.1 outfit from the list.
+1. Use [Copy Outfits](https://github.com/Oops19/TS4-CopyOutfits).
+2. In CAS, create the desired outfit as `Everyday.1` or similar.
+3. Back in-game, switch to `Everyday.1` and copy it using Copy Outfits.
+4. Paste it to the special outfit slot you want to replace permanently.
 
-All edit and toggle commands are not persisted, after starting the game the mod is active and the settings read from the configuration file apply.
+## 🧑‍💻 Cheat Commands
+Enable the cheat console with `Shift+Ctrl+C` and enter `testingcheats true`.
 
+- `o19.bgo.help` — Show a brief help message
+- `o19.bgo.toggle` — Temporarily enable/disable the mod
+- `o19.bgo.edit + EVERYDAY 4` — Block generation of the 5th Everyday outfit
+- `o19.bgo.edit - SPECIAL 1` — Unblock generation of the Special.1 outfit
+
+> ⚠️ Changes made via cheat commands are **not saved**.  
+> On game restart, the mod reloads settings from the configuration file.
+
+## ⚙️ Configuration
+The default config file is located at `The Sims 4/mod_data/block_generate_outfits/block_generate_outfits.txt`
+
+By default, it blocks:
+- `BATHING.0`
+- `SPECIAL.1`
+
+You can edit this file to block or unblock specific outfit slots.  
+For example, you might choose to block additional Everyday or Party outfits depending on your gameplay needs.
+
+## 🗂️ Configuration Format
+It uses a simple Python-style set structure to define which outfits should be blocked from automatic generation:
+
+```python
+{
+    ('BATHING', 0),
+    ('SPECIAL', 1),
+}
+```
+### ➕ To block another outfit:
+Add a new line inside the {} with the outfit category and index in parentheses, followed by a comma:
+```python
+{
+    ('BATHING', 0),
+    ('SPECIAL', 1),
+    ('EVERYDAY', 4),
+}
+```
+
+* Each entry must end with a comma.
+* Index numbers start at 0 (e.g., EVERYDAY 0 is the first Everyday outfit).
+
+## 🎽 Supported Outfit Categories
+
+The following outfit categories are supported and must be written in **UPPER CASE** in the configuration file:
+
+- EVERYDAY
+- FORMAL
+- ATHLETIC
+- SLEEP
+- PARTY
+- BATHING
+- CAREER
+- SITUATION
+- SPECIAL
+- SWIMWEAR
+- HOTWEATHER
+- COLDWEATHER
+- BATUU
+- SMALL_BUSINESS
+
+Each category may support different index ranges. For example:
+- `EVERYDAY`, `FORMAL`, `ATHLETIC`, etc. typically support indices `0–4`
+- `CAREER` supports `0–2`
+- `BATHING`, `SITUATION` usually support only `0`
+- `SPECIAL` supports `0–2` (0 = Default, 1 = Towel, 2 = Fashion)
+
+Make sure to follow the exact format shown in the sample lines. Incorrect entries will be ignored.
+
+
+---
 
 # 📝 Addendum
 
 ## 🔄 Game compatibility
-This mod has been tested with `The Sims 4` 1.119.109, S4CL 3.15, TS4Lib 0.3.42.
+This mod has been tested with `The Sims 4` 1.119.109, S4CL 3.17, TS4Lib 0.3.42.
 It is expected to remain compatible with future releases of TS4, S4CL, and TS4Lib.
 
 ## 📦 Dependencies
