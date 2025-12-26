@@ -4,10 +4,10 @@
 #
 
 
-from ts4lib.common_enums.enum_types.common_enum import CommonEnum
+from ts4lib.custom_enums.enum_types.custom_enum import CustomEnum
 
 
-class BlockGenerateOutfitCategory(CommonEnum):
+class BlockGenerateOutfitCategory(CustomEnum):
     EVERYDAY = 0  # 0-4
     FORMAL = 1  # 0-4
     ATHLETIC = 2  # 0-4
